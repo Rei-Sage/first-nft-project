@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}
+    Workspace
+    {% endblock title %}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class='bg-[#2B2B2B]'>
+    {% include "components/nav.html" %}
+    {% block start %}
+    
+    {% endblock start %}
+
+    {% block create %}
+    
+    {% endblock create %}
+
+    {% block update %}
+    
+    {% endblock update %}
+    <script src='{% static "js/script.js" %}'>
+
+    </script>
+</body>
+</html>

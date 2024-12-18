@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static %}
+{% block detail %}
+<div class="h-[320px] lg:h-[420px] image-place-holder-n7bCW1 w-full bg-gray-200 flex items-center justify-center bg-cover" style="background-image: url('{% static 'img/Image PlaceHolder.svg' %}');">
+</div>
+
+
+<div class="bg-[#2B2B2B] text-white p-6">
+    <div class="max-w-[1240px] container p-10 mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-[125px]">
+            <div class='max-w-[600px]'>
+                <div class="mb-4">
+                    <div class="text-4xl font-semibold mb-3 ">The {{product.name}}</div>
+                    <p class="text-gray-400 text-lg font-bold">Minted on {{product.minted_date}}</p>
+                </div>
+                <div class="block lg:hidden flex flex-col text-center lg:text-left min-w-[200px] h-[224px] bg-[#3B3B3B] items-center p-[30px] rounded-[25px] mb-[10px]">
+                    <div class="mb-6">
+                        <div class="text-sm font-bold">Auction ends in:</div>
+                        <div class="flex justify-center lg:justify-start space-x-4 text-2xl font-bold">
+                            <div><span class="block">59</span><span class="text-xs">Hours</span></div>
+                            <div>: </div>
+                            <div><span class="block">59</span><span class="text-xs">Minutes</span></div>
+                            <div>: </div>
+                            <div><span class="block">59</span><span class="text-xs">Seconds</span></div>
+                        </div>
+                    </div>
+    
+                    <a href="#" class="flex inline-block bg-[#A259FF] px-6 justify-center py-3 min-w-[170px] h-[60px] text-white font-semibold rounded-lg items-center text-center">Place Bid</a>
+                </div>
+
+                <div class="mb-4">
+                    <div class="text-1xl text-gray-400 font-semibold font-vardana mb-1">Created By</div>
+                    <a href="artist-page-tablet" class="flex items-center">
+                        <img class="w-12 h-12 rounded-full" src="{{ product.creator.image.image.url }}" alt="Avatar">
+                        <div class="ml-3 text-white font-semibold font-vardana">{{product.creator}}</div>
+                    </a>
+                </div>
+
+                <div class="mb-4">
+                    <div class="text-1xl font-bold text-gray-400 mb-3">Description</div>
+                    <p class="text-white">
+                        {{product.token.description}}
+                    </p>
+                </div>
+
+                <div class="mb-4">
+                    <div class="text-1xl font-bold text-gray-400">Details</div>
+                    <div>
+                        <img src="" alt="">
+                        <span>View on Etherscan</span>
+                    </div>
+                    <div>
+                        <img src="" alt="">
+                        <span>View on Etherscan</span>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <div class="text-1xl font-bold text-gray-400">Tags</div>
+                    <div class="flex flex-wrap gap-2 mt-2 ">
+                        {% for tags in product.token.tags.all %}
+                        <a href="marketplace-tablet" class="bg-[#3B3B3B] px-4 py-2 rounded-lg text-sm font-semibold">{{tags.name}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden lg:block flex flex-col text-center lg:text-left w-[295px] h-[234px] bg-[#3B3B3B] items-center p-5 rounded-[20px]">
+                <div class="mb-6">
+                    <div class="text-lg font-bold">Auction ends in:</div>
+                    <div class="flex justify-center lg:justify-start space-x-4 text-4xl font-bold">
+                        <div><span class="block">59</span><span class="text-sm">Hours</span></div>
+                        <div>: </div>
+                        <div><span class="block">59</span><span class="text-sm">Minutes</span></div>
+                        <div>: </div>
+                        <div><span class="block">59</span><span class="text-sm">Seconds</span></div>
+                    </div>
+                </div>
+
+                <a href="#" class="flex inline-block bg-[#A259FF] px-6 justify-center py-3 w-[235px] h-[60px] text-white font-semibold rounded-lg items-center text-center">Place Bid</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class='h-auto bg-[#2B2B2B]'>
+    <div class='bg-[#2B2B2B] container mx-auto p-10 max-w-[1240px]'>
+        <div class="mt-4 flex justify-between items-center">
+            <div class="text-4xl font-semibold text-white">More from this artist</div>
+            <a href="#" 
+               class='text-1xl border border-[#A259FF] text-white rounded-[20px] px-6 py-2 transform transition-transform hover:scale-95'>
+                Go To Artist Page
+            </a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[35px]">
+            {% for item in nft %}
+            <a href="{% url "detail" id=item.id %}">
+            <div class="bg-[#3B3B3B] rounded-[20px] transform transition-transform hover:scale-95  overflow-hidden">
+                <img src="{{ item.image_url }}" alt="NFT Image" class="w-full w-full h-[200px] lg:h-[300px]">
+                <div class="py-5 px-6 ">
+                  <h2 class="text-white mb-[6px] text-xl font-semibold font-sans   avatar-placeholder-nV5c0r object-cover"><strong>{{item.name}}</strong></h2>
+                  <div class='flex items-center gap-[6px]'>
+                    <img src="{{ item.creator.image.image.url }}" alt="" class='w-6 h-6 rounded-[50px]' > 
+                    <span class="text-sm text-gray-400 font-semibold font-mono">{{item.creator}}</span>
+                  </div>
+                  
+                  <div class="flex justify-between items-center mt-2">
+                      <div>
+                          <p class="text-sm text-gray-400 font-semibold font-mono">Price:</p>
+                          <p class="text-white font-semibold font-verdana">{{item.price}} ETH</p>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-400 font-semibold font-mono">Highest Bid: </p>
+                          <p class="text-white font-semibold font-verdana">{{item.highest_bid}} wETH</p>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+  
+
+
+{% endblock detail %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block wallet %}
+<div class="flex flex-col md:flex-row bg-[#2B2B2B]">
+    <div class="w-full md:w-1/2 h-[232px] md:h-[615px]">
+      <img
+        src="{% static "img/Image Placeholder.png" %}"
+        alt="Space Illustration"
+        class="object-cover w-full h-[232px] md:h-[615px]"
+      />
+    </div>
+    <div class="flex items-center justify-center md:justify-start w-full md:w-1/2 p-6 md:p-12 bg-[#2B2B2B] h-[615px]">
+      <div class="max-w-md w-full space-y-6">
+        <div class="text-white font-semibold text-3xl sm:text-4xl lg:text-5xl text-center sm:text-start py-4">
+            Connect Wallet
+        </div>
+        <p class="text-white font-normal text-lg sm:text-xl md:text-2xl  sm:text-start">
+            Choose a wallet you want to connect. There are several wallet providers.
+        </p>        
+        <!-- Форма кылам -->
+        <div class="mt-8 space-y-4">
+            <a href="https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-nftmarket&utm_medium=figma-samples" target="_blank" class="flex items-center p-4 bg-[#3B3B3B] border-[#A259FF] hover:bg-gray-700 transition-colors border-[2px] border-solid rounded-[28px]">
+                <img src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/metamask@2x.svg" alt="Metamask" class="w-8 h-8 mr-4">
+                <span class="text-xl sm:text-2xl font-semibold text-white">Metamask</span>
+            </a>
+            <a href="https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-nftmarket&utm_medium=figma-samples" target="_blank" class="flex items-center p-4 bg-[#3B3B3B] border-[#A259FF] hover:bg-gray-700 transition-colors border-[2px] border-solid rounded-[28px]">
+                <img src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/walletconnect@2x.svg" alt="WalletConnect" class="w-8 h-8 mr-4">
+                <span class="text-xl sm:text-2xl font-semibold text-white">Wallet Connect</span>
+            </a>
+            <a href="https://www.animaapp.com/?utm_source=figma-samples&utm_campaign=figma-nftmarket&utm_medium=figma-samples" target="_blank" class="flex items-center p-4 bg-[#3B3B3B] border-[#A259FF] hover:bg-gray-700 transition-colors border-[2px] border-solid rounded-[28px]">
+                <img src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/coinbase@2x.svg" alt="Coinbase" class="w-8 h-8 mr-4">
+                <span class="text-xl sm:text-2xl font-semibold text-white">Coinbase</span>
+            </a>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock wallet %}

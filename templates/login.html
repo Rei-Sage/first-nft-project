@@ -1,0 +1,30 @@
+{% extends "./base.html" %} {% load static %} {% block creator %}
+<div class="flex flex-col md:flex-row bg-[#3B3B3B]">
+  <div class="w-full md:w-1/2 h-[232px] md:h-[615px]">
+    <img
+      src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/image-placeholder-85@1x.png"
+      alt="Space Illustration"
+      class="object-cover w-full h-[232px] md:h-[615px]"
+    />
+  </div>
+  <div
+    class="flex items-center justify-center md:justify-start w-full md:w-1/2 p-6 md:p-12 bg-[#2B2B2B] h-[615px]"
+  >
+    <div class="max-w-md w-full space-y-6">
+      <h2 class="text-4xl font-semibold text-white">Create Account</h2>
+      <p class="text-white sm:text-xl md:text-2xl text-center sm:text-start">
+        Welcome! Enter your details and start creating, collecting and selling
+        NFTs.
+      </p>
+      <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button
+          type="submit"
+          class="w-full py-3 bg-[#A259FF] text-white font-semibold hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 pl-[40px] border-solid rounded-[28px]">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock creator %}

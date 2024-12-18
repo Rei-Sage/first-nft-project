@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block ranking %}
+<div class="w-full bg-[#2B2B2B] p-6">
+    <div class="bg-[#2B2B2B] p-6 rounded-lg container mx-auto sm:p-8 lg:flex lg:items-center lg:justify-between">
+        <div class="lg:w-2/3">
+          <h1 class="text-white text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
+            Top Creators
+          </h1>
+          <p class="text-gray-300 text-base sm:text-lg mt-2 lg:mt-4">
+            Check out top ranking NFT artists on the NFT Marketplace.
+          </p>
+        </div>
+        
+
+      </div>
+      
+  
+    <div class="container bg-[#2B2B2B] p-4 rounded-lg mx-auto">
+        <div class="flex justify-around">
+          <button class="hidden lg:block tab active text-white font-semibold py-2 px-4 border-b-2 border-blue-500">
+            Today
+          </button>
+          <button class="hidden lg:block tab text-gray-400 hover:text-white py-2 px-4 border-b-2 border-transparent hover:border-blue-500">
+            This Week
+          </button>
+          <button class="hidden lg:block tab text-gray-400 hover:text-white py-2 px-4 border-b-2 border-transparent hover:border-blue-500">
+            This Month
+          </button>
+          <button class="hidden lg:block tab text-gray-400 hover:text-white py-2 px-4 border-b-2 border-transparent hover:border-blue-500">
+            All Time
+          </button>
+
+
+
+
+          <button class="lg:hidden tab active text-white font-semibold py-2 px-4 border-b-2 border-blue-500">
+            1d
+          </button>
+          <button class="lg:hidden tab text-gray-400 hover:text-white py-2 px-4 border-b-2 border-transparent hover:border-blue-500">
+            7d
+          </button>
+          <button class="lg:hidden tab text-gray-400 hover:text-white py-2 px-4 border-b-2 border-transparent hover:border-blue-500">
+            30d
+          </button>
+          <button class="lg:hidden tab text-gray-400 hover:text-white py-2 px-4 border-b-2 border-transparent hover:border-blue-500">
+            All Time
+          </button>
+
+
+        </div>
+      </div>
+      
+  
+    <div class="container bg-[#2B2B2B] text-gray-100 p-6 rounded-lg shadow-lg mx-auto">
+        <div class="flex justify-between items-center gap-[15px] border-gray-700 py-[2px] px-[30px] mb-4 border-[1px] border-solid rounded-[25px] ">
+          <div class="w-[30px] text-start text-gray-500 sm:w-[15px] text-sm">#</div>
+          <div class="w-[250px] text-gray-500 sm:w-3/12 text-sm">Artist</div>
+          <div class="hidden w-2/12 text-center text-gray-500 sm:block text-sm">Change</div>
+          <div class="hidden w-2/12 text-center text-gray-500 lg:block text-sm">NFTs Sold</div>
+          <div class="w-[51%] sm:w-2/12 text-center text-gray-500 text-sm">Volume</div>
+        </div>
+          
+        {% for item in page_obj %}
+        <a href="#" class="flex items-center gap-[15px] justify-between py-[2px] px-[30px] bg-[#3B3B3B] transition rounded-[25px] px-2 mb-[15px] h-[60px]">
+            <div class="text-start ranking-number-74aFtB" data-id="I1996:14811;1974:8778;1974:7852">
+                <div class="text-sm spacemono-normal-gunsmoke-16px border-solid border-red-500 rounded-lg">
+                  {{item.id}}
+                </div>
+            </div>
+              
+          <div class="w-[250px] text-gray-500 sm:w-3/12 flex items-center gap-2 text-sm">
+            <img src="{{item.image.image.url}}" alt="Avatar" class="w-8 h-8 rounded-full">
+            <span class='text-white text-sm'>{{item.name}}</span>
+          </div>
+          <div class="hidden sm:block w-2/12 text-center text-green-400 text-sm">+{{item.change_percentage}}%</div>
+          <div class="hidden w-2/12 text-center lg:block text-sm">{{item.nfts_sold}}</div>
+          <div class="w-[51%] text-center sm:w-2/12 text-sm">{{item.volume}} ETH</div>
+        </a>
+        {% endfor %}
+        <div class="flex justify-center mt-6 space-x-2">
+          {% if page_obj.has_previous %}
+              <a href="?page=1" class="px-3 py-1 border rounded-lg bg-gray-800 text-gray-100">Начало</a>
+              <a href="?page={{ page_obj.previous_page_number }}" class="px-3 py-1 border rounded-lg bg-gray-800 text-gray-100">Пред</a>
+          {% endif %}
+      
+          {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.paginator.num_pages }}" class="px-3 py-1 border rounded-lg bg-gray-800 text-gray-100">След</a>
+          {% endif %}
+      </div>  
+      </div>
+      
+</div>
+  
+  
+{% endblock ranking %}

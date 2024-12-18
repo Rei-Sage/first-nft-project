@@ -1,0 +1,83 @@
+{% extends "workspace/base.html" %}
+{% block start %}
+<div class="w-full bg-[#2B2B2B] p-6">
+    <div class="bg-[#2B2B2B] p-6 rounded-lg container mx-auto sm:p-8 lg:flex lg:items-center lg:justify-between">
+        <div class="lg:w-2/4">
+          <h1 class="text-white text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
+            Workspace
+          </h1>
+        </div>
+        
+        <div class="mt-6 lg:mt-0 lg:w-2/4 lg:text-right">
+          <a href="{% url "create" %}" class="inline-block px-6 py-3 bg-blue-600 text-white text-sm sm:text-base font-medium rounded-lg shadow hover:bg-blue-700 focus:ring focus:ring-blue-300 transition">
+            Create
+          </a>
+        </div>
+      </div>
+         
+    <div class="container bg-[#2B2B2B] text-gray-100 p-6 rounded-lg shadow-lg mx-auto">
+        <div class="flex justify-between items-center gap-[15px] border-gray-700 py-[2px] px-[30px] mb-4 border-[1px] border-solid rounded-[25px] ">
+          <div class="w-2/12 text-start text-gray-500 sm:w-[15px] text-sm">#</div>
+          <div class="w-3/12 text-gray-500 sm:w-3/12 text-sm">Artist</div>
+          <div class="hidden w-2/12 text-center text-gray-500 sm:block text-sm">Change</div>
+          <div class="hidden w-2/12 text-center text-gray-500 lg:block text-sm">NFTs Sold</div>
+          <div class="hidden lg:block w-2/12 sm:w-2/12 text-center text-gray-500 text-sm">Volume</div>
+          <div class="w-2/12 sm:w-2/12 text-center text-gray-500 text-sm">Update</div>
+          <div class="w-2/12 sm:w-2/12 text-center text-gray-500 text-sm">Delete</div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[35px]">
+            {% for item in page_obj %}
+                <div class="bg-[#3B3B3B] rounded-[20px] transform transition-transform hover:scale-95  overflow-hidden">
+                  <a href="{% url "detail" id=item.id %}" class=''>
+                    <img src="{{ item.image_url }}" alt="NFT Image" class="w-full h-[200px] lg:h-[300px]">
+                  </a>
+                    <div class="py-5 px-6 ">
+                      <h2 class="text-white mb-[6px] text-xl font-semibold font-sans avatar-placeholder-nV5c0r object-cover"><strong>{{item.name}}</strong></h2>
+                      <div class='flex items-center gap-[6px] relative'>
+                        <img src="{{ item.creator.image.image.url }}" alt="" class='w-6 h-6 rounded-[50px]' > 
+                        <span class="text-sm text-gray-400 font-semibold font-mono">{{item.creator}}</span>
+                        <div class='flex right-0 absolute w-100 justify-around gap-[15px] items-center'>
+                          <a href="{% url 'update' nft_id=item.id %}" class="text-center text-gray-500 text-sm bg-yellow-500 text-white hover:bg-yellow-800 hover:text-black transition p-1 rounded-[10px]">
+                              Update
+                          </a>
+                          
+                          <a href="{% url 'delete' nft_id=item.id %}" class="text-center text-gray-500 text-sm bg-red-500 text-white hover:bg-blue-800 hover:text-black transition p-1 rounded-[10px]">
+                              Delete
+                          </a>
+                          
+                        </div>
+                      
+                      </div>
+                      
+                      <div class="flex justify-between items-center mt-2">
+                          <div>
+                              <p class="text-sm text-gray-400 font-semibold font-mono">Price:</p>
+                              <p class="text-white font-semibold font-verdana">{{item.price}} ETH</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-400 font-semibold font-mono">Highest Bid: </p>
+                              <p class="text-white font-semibold font-verdana">{{item.highest_bid}} wETH</p>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+              
+            {% endfor %}
+        </div>
+        
+
+        <div class="flex justify-center mt-6 space-x-2">
+            {% if page_obj.has_previous %}
+                <a href="?page=1" class="px-3 py-1 border rounded-lg bg-gray-800 text-gray-100">Начало</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="px-3 py-1 border rounded-lg bg-gray-800 text-gray-100">Пред</a>
+            {% endif %}
+        
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="px-3 py-1 border rounded-lg bg-gray-800 text-gray-100">След</a>
+            {% endif %}
+        </div>
+        
+      </div>
+      
+</div>
+{% endblock start %}

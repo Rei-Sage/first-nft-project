@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block creator %}
+<div class="flex flex-col md:flex-row bg-[#3B3B3B]">
+    <div class="w-full md:w-1/2 h-[232px] md:h-[615px]">
+      <img
+        src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/image-placeholder-85@1x.png"
+        alt="Space Illustration"
+        class="object-cover w-full h-[232px] md:h-[615px]"
+      />
+    </div>
+    <div class="flex items-center justify-center md:justify-start w-full md:w-1/2 p-6 md:p-12 bg-[#2B2B2B] h-[615px]">
+      <div class="max-w-md w-full space-y-6">
+        <h2 class="text-4xl font-semibold text-white">Create Account</h2>
+        <p class="text-white sm:text-xl md:text-2xl text-center sm:text-start">Welcome! Enter your details and start creating, collecting and selling NFTs.</p>
+        <form class="space-y-4">
+          <div class="relative">
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              class="w-full px-4 py-3 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 pl-[40px] bg-[#3B3B3B] border-[#A259FF] hover:bg-gray-700 transition-colors border-[2px] border-solid rounded-[28px] text-[#2B2B2B]"
+              required
+            />
+            <span class="absolute left-4 top-1/2 transform -translate-y-1/2">
+              <img
+                src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/user-4@2x.svg"
+                alt="User Icon"
+                class="w-5 h-5"
+              />
+            </span>
+          </div>
+          <div class="relative">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              class="w-full px-4 py-3 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 pl-[40px] bg-[#3B3B3B] border-[#A259FF] hover:bg-gray-700 transition-colors border-[2px] border-solid rounded-[28px] text-[#2B2B2B]"
+              required
+            />
+            <span class="absolute left-4 top-1/2 transform -translate-y-1/2">
+              <img
+                src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/envelopesimple-4@2x.svg"
+                alt="Email Icon"
+                class="w-5 h-5"
+              />
+            </span>
+          </div>
+          <div class="relative">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="w-full px-4 py-3 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 pl-[40px] bg-[#3B3B3B] border-[#A259FF] hover:bg-gray-700 transition-colors border-[2px] border-solid rounded-[28px] text-[#2B2B2B]"
+              required
+            />
+            <span class="absolute left-4 top-1/2 transform -translate-y-1/2">
+              <img
+                src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/lockkey@2x.svg"
+                alt="Lock Icon"
+                class="w-5 h-5"
+              />
+            </span>
+          </div>
+          <div class="relative">
+            <input
+              type="password"
+              name="confirm_password"
+              placeholder="Confirm Password"
+              class="w-full px-4 py-3 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 pl-[40px] bg-[#3B3B3B] border-[#A259FF] hover:bg-gray-700 transition-colors border-[2px] border-solid rounded-[28px] text-[#2B2B2B]"
+              required
+            />
+            <span class="absolute left-4 top-1/2 transform -translate-y-1/2">
+              <img
+                src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/lockkey@2x.svg"
+                alt="Lock Icon"
+                class="w-5 h-5"
+              />
+            </span>
+          </div>
+          <button
+            type="submit"
+            class="w-full py-3 bg-[#A259FF] text-white font-semibold hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 pl-[40px] border-solid rounded-[28px]"
+          >
+            Create Account
+          </button>
+          {% comment %} <a href="{% url 'logout' %}" class="text-white">Logout</a> {% endcomment %}
+          <a href="{% url 'users:login' %}" class="text-white">Login</a>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock creator %}

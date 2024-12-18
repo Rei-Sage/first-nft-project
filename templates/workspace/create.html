@@ -1,0 +1,102 @@
+{% extends 'workspace/base.html' %} {% block title %}Create{% endblock title %}
+{% block create %}
+
+<div class="w-full bg-[#2B2B2B] shadow-md rounded-lg p-6">
+  <h1 class="mb-5 text-center text-white font-medium">Создать NFT</h1>
+  <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data" class="space-y-6" novalidate>
+      {% csrf_token %}
+      {{ nft_form.as_p }}
+        
+      <h2>Информация 1245</h2>
+      {{ info_form.as_p }}
+      {% comment %} <div class="grid grid-cols-1 gap-4">
+          <div>
+              <label for="name" class="block text-sm font-medium text-white">Название</label>
+              {{ nft_form.name }}
+              {% for error in nft_form.name.errors %}
+              <div class="text-red-600 mb-2">{{ error }}</div>
+                {% endfor %}
+          </div>
+          <div>
+              <label for="creator" class="block text-sm font-medium text-white">Создатель (Artist)</label>
+              {{ nft_form.creator }}
+              {% for error in nft_form.creator.errors %}
+              <div class="text-red-600 mb-2">{{ error }}</div>
+            {% endfor %}
+          </div>
+          <div>
+              <label for="price" class="block text-sm font-medium text-white">Цена</label>
+              {{ nft_form.price }}
+              {% for error in nft_form.name.errors %}
+              <div class="text-red-600 mb-2">{{ error }}</div>
+                {% endfor %}
+          </div>
+          <div>
+              <label for="highest_bid" class="block text-sm font-medium text-white">Высшая ставка</label>
+              {{ nft_form.highest_bid }}
+                          {% for error in nft_form.name.errors %}
+                <div class="text-red-600 mb-2">{{ error }}</div>
+                {% endfor %}
+          </div>
+          <div>
+              <label for="image_url" class="block text-sm font-medium text-white">URL Изображения</label>
+              {{ nft_form.image_url }}
+                {% for error in nft_form.name.errors %}
+                <div class="text-red-600 mb-2">{{ error }}</div>
+                {% endfor %}
+          </div>
+          <div>
+              <label for="minted_date" class="block text-sm font-medium text-white">Дата создания</label>
+              {{ nft_form.minted_date }}
+                          {% for error in nft_form.name.errors %}
+                <div class="text-red-600 mb-2">{{ error }}</div>
+                {% endfor %}
+          </div>
+
+          <div>
+              <label for="description" class="block text-sm font-medium text-white">Описание</label>
+              {{ info_form.description }}
+                          {% for error in nft_form.name.errors %}
+                <div class="text-red-600 mb-2">{{ error }}</div>
+                {% endfor %}
+          </div>
+          <div>
+              <label for="blockchain" class="block text-sm font-medium text-white">Блокчейн</label>
+              {{ info_form.blockchain }}
+                          {% for error in nft_form.name.errors %}
+                <div class="text-red-600 mb-2">{{ error }}</div>
+                {% endfor %}
+          </div>
+          <div>
+              <label for="etherscan_link" class="block text-sm font-medium text-white">Etherscan</label>
+              {{ info_form.etherscan_link }}
+                          {% for error in nft_form.name.errors %}
+                <div class="text-red-600 mb-2">{{ error }}</div>
+                {% endfor %}
+          </div>
+          <div>
+              <label for="original_link" class="block text-sm font-medium text-white">Оригинальная ссылка</label>
+              {{ info_form.original_link }}
+                          {% for error in nft_form.name.errors %}
+                <div class="text-red-600 mb-2">{{ error }}</div>
+                {% endfor %}
+          </div>
+          <div>
+              <label for="tags" class="block text-sm font-medium text-white">Тэги</label>
+              {{ info_form.tags }}
+                          {% for error in nft_form.name.errors %}
+                <div class="text-red-600 mb-2">{{ error }}</div>
+                {% endfor %}
+          </div>
+      </div> {% endcomment %}
+    
+      <div>
+          <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300 ease-in-out">
+              Создать NFT
+          </button>
+      </div>
+  </form>
+</div>
+
+
+{% endblock create %}

@@ -1,0 +1,71 @@
+{% load static %}
+<footer class="bg-[#3B3B3B] text-white p-10">
+    <div class="container max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div>
+        <div class="flex items-center mb-4">
+          <img src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/storefront@2x.svg" alt="Storefront" class="h-8 w-8 mr-2">
+          <img src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/nft-marketplace@2x.svg" alt="NFT Marketplace" class="h-8 w-auto">
+        </div>
+        <p class="text-[#CCCCCC] text-sm mb-4">NFT marketplace UI created with Anima for Figma.</p>
+        <div>
+          <p class="text-sm mb-2">Join our community:</p>
+          <div class="flex space-x-4">
+            <a href="https://discord.com/invite/eQxkYTNxSp" target="_blank" aria-label="Discord">
+              <img src="{% static "img/Dis.svg" %}" alt="Discord Logo" class="h-6 w-6">
+            </a>
+            <a href="https://www.youtube.com/channel/UCXqr0Ca-b73rU9zcpSBJ5cw" target="_blank" aria-label="YouTube">
+              <img src="{% static "img/YoutubeLogo.svg" %}" alt="YouTube Logo" class="h-6 w-6">
+            </a>
+            <a href="https://twitter.com/animaapp?lang=en" target="_blank" aria-label="Twitter">
+              <img src="{% static "img/TwitterLogo.svg" %}" alt="Twitter Logo" class="h-6 w-6">
+            </a>
+            <a href="https://www.instagram.com/animaapp/?hl=en" target="_blank" aria-label="Instagram">
+              <img src="{% static "img/InstagramLogo.svg" %}" alt="Instagram Logo" class="h-6 w-6">
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div>
+        <h3 class="text-lg font-bold mb-4">Explore</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="marketplace-desktop" class="text-[#CCCCCC] hover:underline">Marketplace</a>
+          </li>
+          <li>
+            <a href="rankings-desktop" class="text-[#CCCCCC] hover:underline">Rankings</a>
+          </li>
+          <li>
+            <a href="connect-wallet-desktop" class="text-[#CCCCCC] hover:underline">Connect a wallet</a>
+          </li>
+        </ul>
+      </div>
+  
+      <div>
+        <h3 class="text-lg font-bold mb-4">Join Our Weekly Digest</h3>
+        <p class="text-[#CCCCCC] text-sm mb-4">
+          Get exclusive promotions & updates straight to your inbox.
+        </p>
+        <form action="#" method="POST" class="flex flex-col space-y-4">
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email here"
+            required
+            class="bg-gray-800 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          >
+          <button
+            type="submit"
+            class="bg-[#A259FF] text-white py-2 px-4 rounded-lg hover:bg-cyan-600 transition"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+      <div class="container border-t border-gray-700 mt-10 pt-4 text-[#CCCCCC] text-xs">
+        <p>Ⓒ NFT Market. Use this template freely.</p>
+      </div>
+    </div>
+
+  </footer>
+  

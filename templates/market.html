@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block market %}
+<div class="bg-[#2B2B2B] text-white p-6">
+    <div class="max-w-[1240px] container mx-auto">
+      <div class="mb-8 p-4">
+        <h1 class="text-4xl font-semibold font-sans">Browse Marketplace</h1>
+        <p class="text-lg mt-2 font-semibold font-sans">Browse through more than 50k NFTs on the NFT Marketplace.</p>
+      </div>
+  
+      <div class="rounded-lg p-4">
+        <div class="flex items-center gap-4 relative">
+          <input 
+            type="text" 
+            name="searchyourfavouritenfts" 
+            placeholder="Search your favourite NFTs" 
+            class="w-full px-4 py-3 bg-[#3B3B3B] rounded-[20px] text-red placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:text-sm lg:text-base"
+          >
+          <a class='absolute  right-[15px]' href=''><img 
+            src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/magnifyingglass@2x.svg" 
+            alt="Search Icon" 
+            class="w-6 h-6 sm:w-5 sm:h-5 lg:w-7 lg:h-7"
+          ></a>
+        </div>
+      </div>
+
+      <div class="flex justify-around">
+        <button class="tab-button px-6 py-2 text-lg font-semibold font-verdana border-b-2 border-white text-white">
+          NFTs
+        </button>
+        <button class="tab-button px-6 py-2 text-lg font-semibold font-verdana border-b-4 border-transparent text-gray-400 hover:text-white">
+          Collections
+        </button>
+      </div>
+      
+
+
+
+    </div>
+
+    </div>
+
+    <div class='h-auto bg-[#3B3B3B] mb-[1px]'>
+    <div class='bg-[#3B3B3B] max-w-[1240px] container mx-auto p-10'>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 ">
+            {% for item in nft %}
+            <a href="{% url "detail" id=item.id %}">
+            <div class="bg-[#2B2B2B] rounded-[20px] transform transition-transform hover:scale-95  overflow-hidden">
+                <img src="{{ item.image_url }}" alt="NFT Image" class="w-full w-full h-[200px] lg:h-[300px]">
+                <div class="py-5 px-6 ">
+                  <h2 class="text-white mb-[6px] text-xl font-semibold font-sans   avatar-placeholder-nV5c0r object-cover"><strong>{{item.name}}</strong></h2>
+                  <div class='flex items-center gap-[6px]'>
+                    <img src="{{ item.creator.image.image.url }}" alt="" class='w-6 h-6 rounded-[50px]' > 
+                    <span class="text-sm text-gray-400 font-semibold font-mono">{{item.creator}}</span>
+                  </div>
+                  
+                  <div class="flex justify-between items-center mt-2">
+                      <div>
+                          <p class="text-sm text-gray-400 font-semibold font-mono">Price:</p>
+                          <p class="text-white font-semibold font-verdana">{{item.price}} ETH</p>
+                      </div>
+                      <div>
+                          <p class="text-sm text-gray-400 font-semibold font-mono">Highest Bid: </p>
+                          <p class="text-white font-semibold font-verdana">{{item.highest_bid}} wETH</p>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+          </div>
+    </div>
+</div>
+  
+{% endblock market %}

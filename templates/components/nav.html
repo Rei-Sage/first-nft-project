@@ -1,0 +1,43 @@
+<nav class="bg-[#2B2B2B] text-white">
+    <div class="container max-w-[1240px] mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="homepage-desktop" class="flex items-center space-x-4">
+            <img class="storefront-cckUxM" src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/storefront@2x.svg" alt="Storefront">
+            <img class="nft-marketplace-Wxi6zV" class='mt-[4px]'  src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/nft-marketplace@2x.svg" alt="NFT Marketplace">            
+        </a>
+
+        <div class="lg:hidden">
+            <button id="mobile-menu-toggle" class="focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="nav-menu" class="hidden lg:flex items-center space-x-6">
+            <a href="{% url "market" %}" class="cursor-pointer font-work-sans font-semibold text-white text-16px transform transition-transform hover:scale-95">Marketplace</a>
+            <a href="{% url "ranking" %}" class="transform transition-transform hover:scale-95 font-work-sans font-semibold text-white text-16px">Rankings</a>
+            <a href="{% url "wallet" %}" class="transform transition-transform hover:scale-95 font-work-sans font-semibold text-white text-16px">Connect a Wallet</a>
+            <a href="{% url "workspace" %}" class="transform transition-transform hover:scale-95 font-work-sans font-semibold text-white text-16px">Workspace</a>
+            <a href="{% url "creator" %}" class="flex items-center space-x-2 transform transition-transform hover:scale-95">
+                <div class="flex gap-1 sign-up-OBaXMV smart-layers-pointers bg-[#A259FF] py-3 px-5 rounded-xl" data-id="I1996:14808;1433:1350" data-hotspot-id="hp-3">
+                    <img class="user-d2rYAH" data-id="I1996:14808;1433:1350;1424:1791" src="https://cdn.animaapp.com/projects/63aaf7e2426e9824f0350c11/releases/63aaf8f2426e9824f0350c13/img/user@2x.svg" alt="User">
+                    <div class="hover:text-gray-300 font-work-sans font-semibold text-white text-16px" data-id="I1996:14808;1433:1350;1424:1792">
+                        Sign Up
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div id="mobile-menu" class="lg:hidden absolute top-14 right-0 w-64 bg-blue-500 z-50">
+            <div class="container mx-auto px-4 pt-2 pb-4 space-y-3">
+                <a href='{% url "market" %}' class="block p-1 hover:bg-red-700 transform transition-transform hover:scale-95">Marketplace</a>
+                <a href="{% url "ranking" %}" class="block p-2 hover:bg-red-700 transform transition-transform hover:scale-95">Rankings</a>
+                <a href="{% url "wallet" %}" class="block p-2 hover:bg-red-700 transform transition-transform hover:scale-95">Connect a Wallet</a>
+                <a href="{% url "workspace" %}" class="block p-2 hover:bg-red-700 transform transition-transform hover:scale-95">Connect a Wallet</a>
+                <a href="{% url "creator" %}" class="flex items-center p-2 hover:bg-red-700 space-x-2 transform transition-transform hover:scale-95">
+                    <span>Sign Up</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
